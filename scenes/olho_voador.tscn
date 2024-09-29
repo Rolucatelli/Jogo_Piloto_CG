@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjdkdidmx0yiv"]
+
+[ext_resource type="Script" path="res://scripts/olho_voador.gd" id="1_os32h"]
+[ext_resource type="Texture2D" uid="uid://cojx4253aibqv" path="res://assets/sprites/Inimigo Demonio.png" id="1_y6hfu"]
+[ext_resource type="PackedScene" uid="uid://cc7hvkm0b2siv" path="res://scenes/kill_zone.tscn" id="2_q1kdm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd14w"]
+atlas = ExtResource("1_y6hfu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shk0y"]
+atlas = ExtResource("1_y6hfu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mq1u"]
+atlas = ExtResource("1_y6hfu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yufcw"]
+atlas = ExtResource("1_y6hfu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ldinx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd14w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shk0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mq1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yufcw")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyc8h"]
+size = Vector2(30, 29)
+
+[node name="Olho Voador" type="Node2D"]
+script = ExtResource("1_os32h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ldinx")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="KillZone" parent="." instance=ExtResource("2_q1kdm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_dyc8h")
+
+[node name="RayCast2DBaixoD" type="RayCast2D" parent="."]
+position = Vector2(15, 15)
+target_position = Vector2(0, 21)
+
+[node name="RayCast2D2BaixoE" type="RayCast2D" parent="."]
+position = Vector2(-15, 15)
+target_position = Vector2(0, 21)
+
+[node name="RayCast2DDireita" type="RayCast2D" parent="."]
+position = Vector2(14, 0)
+target_position = Vector2(4, 0)
+
+[node name="RayCast2DEsquerda" type="RayCast2D" parent="."]
+position = Vector2(-14, 0)
+target_position = Vector2(-4, 0)

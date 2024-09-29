@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://tklpsg1rynxl"]
+
+[ext_resource type="Texture2D" uid="uid://4of7jrqktacy" path="res://assets/sprites/TileSet Pantheon King.png" id="1_i106c"]
+[ext_resource type="PackedScene" uid="uid://bi2uesqpvdlmk" path="res://scenes/player.tscn" id="2_a4lqi"]
+[ext_resource type="PackedScene" uid="uid://bjdkdidmx0yiv" path="res://scenes/olho_voador.tscn" id="4_634ul"]
+[ext_resource type="PackedScene" uid="uid://cc7hvkm0b2siv" path="res://scenes/kill_zone.tscn" id="5_niwij"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwjvb"]
+texture = ExtResource("1_i106c")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_sm77t"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_wwjvb")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2lop1"]
+distance = -75.0
+
+[node name="Game" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_sm77t")
+format = 2
+layer_0/tile_data = PackedInt32Array(65530, 65536, 0, 65531, 65536, 0, 65532, 65536, 0, 65533, 65536, 0, 65534, 65536, 0, 65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 131072, 0, 65529, 0, 0, -131063, 0, 0, -131062, 65536, 0, -131061, 65536, 0, -131060, 65536, 0, -131059, 65536, 0, -131058, 65536, 0, -131057, 65536, 0, -131056, 131072, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_a4lqi")]
+position = Vector2(-7, -35)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+limit_bottom = 125
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Olho Voador" parent="." instance=ExtResource("4_634ul")]
+position = Vector2(256, -68)
+
+[node name="Inimigos" type="Node" parent="."]
+
+[node name="KillZone" parent="." instance=ExtResource("5_niwij")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("WorldBoundaryShape2D_2lop1")
+
+[connection signal="body_entered" from="KillZone" to="Player" method="_on_kill_zone_body_entered"]
