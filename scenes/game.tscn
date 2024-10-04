@@ -1,35 +1,154 @@
-[gd_scene load_steps=8 format=3 uid="uid://tklpsg1rynxl"]
+[gd_scene load_steps=23 format=3 uid="uid://tklpsg1rynxl"]
 
-[ext_resource type="Texture2D" uid="uid://4of7jrqktacy" path="res://assets/sprites/TileSet Pantheon King.png" id="1_i106c"]
 [ext_resource type="PackedScene" uid="uid://bi2uesqpvdlmk" path="res://scenes/player.tscn" id="2_a4lqi"]
 [ext_resource type="PackedScene" uid="uid://bjdkdidmx0yiv" path="res://scenes/olho_voador.tscn" id="4_634ul"]
+[ext_resource type="Texture2D" uid="uid://cac6instvo6w7" path="res://assets/sprites/TileSet Pantheon King G.png" id="5_hbcu5"]
 [ext_resource type="PackedScene" uid="uid://cc7hvkm0b2siv" path="res://scenes/kill_zone.tscn" id="5_niwij"]
+[ext_resource type="Texture2D" uid="uid://7re2fh70kgo" path="res://assets/sprites/Personagens/Thanathos/thanatos_Idle.png" id="5_obk8r"]
+[ext_resource type="Texture2D" uid="uid://dk5l2rcn6jfkc" path="res://assets/sprites/Personagens/Thanathos/thanatos_Run.png" id="6_ery6f"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwjvb"]
-texture = ExtResource("1_i106c")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eby27"]
+texture = ExtResource("5_hbcu5")
+texture_region_size = Vector2i(32, 32)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0, -16, 0)
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0, -16, 0)
+12:0/0 = 0
+14:0/0 = 0
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -13.75, 16, -13.75, 16, 16, 0, 16, -16, -8)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -13.75, 16, -13.75, 16, 16, -16, 16)
 2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -13.75, 16, -13.75, 16, -8, 0, 16, -16, 16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -13.75, 16, -13.75, 16, 0, -16, 0)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -13.75, 16, -13.75, 16, 0, -16, 0)
+6:0/0 = 0
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -13.75, 16, -13.75, 16, 0, -16, 0)
+7:0/0 = 0
+7:1/0 = 0
+6:1/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_sm77t"]
+[sub_resource type="TileSet" id="TileSet_8aiir"]
+tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_wwjvb")
+sources/0 = SubResource("TileSetAtlasSource_eby27")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2lop1"]
 distance = -75.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fftqb"]
+atlas = ExtResource("5_obk8r")
+region = Rect2(0, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cies"]
+atlas = ExtResource("5_obk8r")
+region = Rect2(96, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmdnp"]
+atlas = ExtResource("5_obk8r")
+region = Rect2(192, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8sjm"]
+atlas = ExtResource("5_obk8r")
+region = Rect2(288, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpcge"]
+atlas = ExtResource("5_obk8r")
+region = Rect2(0, 128, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2vg6"]
+atlas = ExtResource("5_obk8r")
+region = Rect2(96, 128, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w3f4"]
+atlas = ExtResource("5_obk8r")
+region = Rect2(192, 128, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy1s4"]
+atlas = ExtResource("6_ery6f")
+region = Rect2(96, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58ps8"]
+atlas = ExtResource("6_ery6f")
+region = Rect2(192, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_177h2"]
+atlas = ExtResource("6_ery6f")
+region = Rect2(288, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2inap"]
+atlas = ExtResource("6_ery6f")
+region = Rect2(0, 128, 96, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0lc66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fftqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cies")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmdnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8sjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpcge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2vg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w3f4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy1s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58ps8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_177h2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2inap")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdavs"]
+size = Vector2(23, 95)
+
 [node name="Game" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_sm77t")
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_8aiir")
 format = 2
-layer_0/tile_data = PackedInt32Array(65530, 65536, 0, 65531, 65536, 0, 65532, 65536, 0, 65533, 65536, 0, 65534, 65536, 0, 65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 131072, 0, 65529, 0, 0, -131063, 0, 0, -131062, 65536, 0, -131061, 65536, 0, -131060, 65536, 0, -131059, 65536, 0, -131058, 65536, 0, -131057, 65536, 0, -131056, 131072, 0)
+layer_0/name = "Ch"
+layer_0/tile_data = PackedInt32Array(65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 131072, 0, 65534, 65536, 0, 65533, 65536, 0, 65532, 65536, 0, 65531, 65536, 0, 65530, 0, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 65536, 0, -65526, 65536, 0, -65530, 0, 0, -65525, 131072, 0, -131059, 0, 0, -131058, 65536, 0, -131057, 131072, 0, -196591, 0, 0, -196590, 65536, 0, -196589, 131072, 0, -131051, 0, 0, -131050, 65536, 0, -131049, 131072, 0, -65511, 0, 0, -65510, 65536, 0, -65509, 65536, 0, -65508, 65536, 0, -65507, 65536, 0, -65506, 65536, 0, -65505, 65536, 0, -65504, 65536, 0, -65503, 65536, 0, -65502, 65536, 0, -65501, 131072, 0, -8, 327680, 0, -9, 262144, 0, -10, 262144, 0, -11, 262144, 0, -12, 262144, 0, -13, 262144, 0, -14, 196608, 0, -65554, 196608, 0, -65553, 262144, 0, -65552, 327680, 0, -131094, 196608, 0, -131093, 262144, 0, -131092, 327680, 0, -196634, 196608, 0, -196633, 262144, 0, -196632, 327680, 0, -131100, 327680, 0, -131101, 262144, 0, -131102, 262144, 0, -131103, 262144, 0, -131104, 262144, 0, -131105, 262144, 0, -131106, 262144, 0, -131107, 262144, 0, -131108, 262144, 0, -131109, 262144, 0, -131110, 196608, 0)
+layer_1/name = "Layer1"
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array(65531, 458752, 1, -65526, 458752, 1, -131059, 458752, 1, -131051, 458752, 1, -65510, 458752, 1, -65504, 458752, 1, -131046, 458752, 0, -131040, 458752, 0, -196587, 458752, 0, -196595, 458752, 0, -131062, 458752, 0, -5, 458752, 0, -9, 393216, 1, -65552, 393216, 1, -65554, 393216, 1, -131092, 393216, 1, -131094, 393216, 1, -196632, 393216, 1, -196634, 393216, 1, -131101, 393216, 1, -131110, 393216, 1, -196646, 393216, 0, -196637, 393216, 0, -262170, 393216, 0, -262168, 393216, 0, -196630, 393216, 0, -196628, 393216, 0, -131090, 393216, 0, -131088, 393216, 0, -65545, 393216, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_a4lqi")]
-position = Vector2(-7, -35)
+visible = false
+visibility_layer = 4
+position = Vector2(-6, -30)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
@@ -38,7 +157,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Olho Voador" parent="." instance=ExtResource("4_634ul")]
-position = Vector2(256, -68)
+position = Vector2(255, -65)
 
 [node name="Inimigos" type="Node" parent="."]
 
@@ -46,5 +165,17 @@ position = Vector2(256, -68)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 shape = SubResource("WorldBoundaryShape2D_2lop1")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(-24, -53)
+sprite_frames = SubResource("SpriteFrames_0lc66")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-29.5, -46.5)
+shape = SubResource("RectangleShape2D_jdavs")
 
 [connection signal="body_entered" from="KillZone" to="Player" method="_on_kill_zone_body_entered"]
