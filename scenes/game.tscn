@@ -1,11 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://tklpsg1rynxl"]
+[gd_scene load_steps=8 format=3 uid="uid://tklpsg1rynxl"]
 
+[ext_resource type="Script" path="res://scenes/arena.gd" id="1_ode12"]
 [ext_resource type="PackedScene" uid="uid://bi2uesqpvdlmk" path="res://scenes/player.tscn" id="2_a4lqi"]
-[ext_resource type="PackedScene" uid="uid://bjdkdidmx0yiv" path="res://scenes/olho_voador.tscn" id="4_634ul"]
 [ext_resource type="Texture2D" uid="uid://cac6instvo6w7" path="res://assets/sprites/TileSet Pantheon King G.png" id="5_hbcu5"]
 [ext_resource type="PackedScene" uid="uid://cc7hvkm0b2siv" path="res://scenes/kill_zone.tscn" id="5_niwij"]
-[ext_resource type="Texture2D" uid="uid://7re2fh70kgo" path="res://assets/sprites/Personagens/Thanathos/thanatos_Idle.png" id="5_obk8r"]
-[ext_resource type="Texture2D" uid="uid://dk5l2rcn6jfkc" path="res://assets/sprites/Personagens/Thanathos/thanatos_Run.png" id="6_ery6f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eby27"]
 texture = ExtResource("5_hbcu5")
@@ -41,102 +39,12 @@ sources/0 = SubResource("TileSetAtlasSource_eby27")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2lop1"]
 distance = -75.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fftqb"]
-atlas = ExtResource("5_obk8r")
-region = Rect2(0, 0, 96, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7cies"]
-atlas = ExtResource("5_obk8r")
-region = Rect2(96, 0, 96, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vmdnp"]
-atlas = ExtResource("5_obk8r")
-region = Rect2(192, 0, 96, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w8sjm"]
-atlas = ExtResource("5_obk8r")
-region = Rect2(288, 0, 96, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qpcge"]
-atlas = ExtResource("5_obk8r")
-region = Rect2(0, 128, 96, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f2vg6"]
-atlas = ExtResource("5_obk8r")
-region = Rect2(96, 128, 96, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1w3f4"]
-atlas = ExtResource("5_obk8r")
-region = Rect2(192, 128, 96, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jy1s4"]
-atlas = ExtResource("6_ery6f")
-region = Rect2(96, 0, 96, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_58ps8"]
-atlas = ExtResource("6_ery6f")
-region = Rect2(192, 0, 96, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_177h2"]
-atlas = ExtResource("6_ery6f")
-region = Rect2(288, 0, 96, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2inap"]
-atlas = ExtResource("6_ery6f")
-region = Rect2(0, 128, 96, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0lc66"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fftqb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7cies")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vmdnp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w8sjm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qpcge")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f2vg6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1w3f4")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jy1s4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_58ps8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_177h2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2inap")
-}],
-"loop": true,
-"name": &"new_animation",
-"speed": 8.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdavs"]
-size = Vector2(23, 95)
-
 [node name="Game" type="Node2D"]
 
-[node name="TileMap2" type="TileMap" parent="."]
+[node name="Arena" type="Node" parent="."]
+script = ExtResource("1_ode12")
+
+[node name="TileMap2" type="TileMap" parent="Arena"]
 tile_set = SubResource("TileSet_8aiir")
 format = 2
 layer_0/name = "Ch"
@@ -145,37 +53,20 @@ layer_1/name = "Layer1"
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(65531, 458752, 1, -65526, 458752, 1, -131059, 458752, 1, -131051, 458752, 1, -65510, 458752, 1, -65504, 458752, 1, -131046, 458752, 0, -131040, 458752, 0, -196587, 458752, 0, -196595, 458752, 0, -131062, 458752, 0, -5, 458752, 0, -9, 393216, 1, -65552, 393216, 1, -65554, 393216, 1, -131092, 393216, 1, -131094, 393216, 1, -196632, 393216, 1, -196634, 393216, 1, -131101, 393216, 1, -131110, 393216, 1, -196646, 393216, 0, -196637, 393216, 0, -262170, 393216, 0, -262168, 393216, 0, -196630, 393216, 0, -196628, 393216, 0, -131090, 393216, 0, -131088, 393216, 0, -65545, 393216, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_a4lqi")]
-visible = false
+[node name="Player" parent="Arena" instance=ExtResource("2_a4lqi")]
 visibility_layer = 4
 position = Vector2(-6, -30)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Arena/Player"]
 zoom = Vector2(3, 3)
 limit_bottom = 125
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="Olho Voador" parent="." instance=ExtResource("4_634ul")]
-position = Vector2(255, -65)
+[node name="KillZone" parent="Arena" instance=ExtResource("5_niwij")]
 
-[node name="Inimigos" type="Node" parent="."]
-
-[node name="KillZone" parent="." instance=ExtResource("5_niwij")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/KillZone"]
 shape = SubResource("WorldBoundaryShape2D_2lop1")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(-24, -53)
-sprite_frames = SubResource("SpriteFrames_0lc66")
-animation = &"new_animation"
-autoplay = "new_animation"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-29.5, -46.5)
-shape = SubResource("RectangleShape2D_jdavs")
-
-[connection signal="body_entered" from="KillZone" to="Player" method="_on_kill_zone_body_entered"]
+[connection signal="player_hit" from="Arena/Player" to="Arena" method="_on_player_player_hit"]
+[connection signal="player_died" from="Arena/KillZone" to="Arena" method="_on_kill_zone_player_died"]

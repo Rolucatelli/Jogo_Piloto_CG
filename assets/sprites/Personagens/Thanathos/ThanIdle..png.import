@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7re2fh70kgo"
-path="res://.godot/imported/thanatos_Idle.png-f605ad315b6e4a7c9919f8f548619757.ctex"
+uid="uid://cjh06yyvtlm5c"
+path="res://.godot/imported/ThanIdle..png-5a120105f155b0609febdec3b969b847.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Personagens/Thanathos/thanatos_Idle.png"
-dest_files=["res://.godot/imported/thanatos_Idle.png-f605ad315b6e4a7c9919f8f548619757.ctex"]
+source_file="res://assets/sprites/Personagens/Thanathos/ThanIdle..png"
+dest_files=["res://.godot/imported/ThanIdle..png-5a120105f155b0609febdec3b969b847.ctex"]
 
 [params]
 

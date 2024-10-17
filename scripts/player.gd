@@ -1,6 +1,15 @@
+class_name Player
+
 extends CharacterBody2D
 
-signal hit
+signal player_hit(hit_type: String)
+
+@export var vida := 3:
+	set(valor):
+		vida = clamp(valor, 0, 3)
+@export var dano := 0.0:
+	set(valor):
+		dano = clampf(float(valor), 0.0, 120.0)
 
 const SPEED = 115.0
 const JUMP_VELOCITY = -275.0
@@ -62,7 +71,7 @@ func update_animations(direction):
 		elif velocity.y > 0:
 			sprite.flip_h = (direction == -1)
 			animation_player.play("Queda")
-	
-	
-	
-	
+
+func is_player_hit(hit_type: String):
+	if hit_type == "FinalHit":
+		pass
