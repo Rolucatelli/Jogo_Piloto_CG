@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4of7jrqktacy"
-path="res://.godot/imported/TileSet Pantheon King.png-31b15c2d25f4b79ed8486b44733e68e8.ctex"
+uid="uid://c1s205yaxitm4"
+path="res://.godot/imported/Ataque-Caveira-Sem-Foice.png-efe826368882750f50cd234d48027584.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/TileSet Pantheon King.png"
-dest_files=["res://.godot/imported/TileSet Pantheon King.png-31b15c2d25f4b79ed8486b44733e68e8.ctex"]
+source_file="res://assets/sprites/Old/Ataque-Caveira-Sem-Foice.png"
+dest_files=["res://.godot/imported/Ataque-Caveira-Sem-Foice.png-efe826368882750f50cd234d48027584.ctex"]
 
 [params]
 

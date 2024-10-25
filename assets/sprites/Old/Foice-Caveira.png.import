@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cojx4253aibqv"
-path="res://.godot/imported/Inimigo Demonio.png-3bc730c11e347037d9f4e908577147af.ctex"
+uid="uid://26u67hb6vd27"
+path="res://.godot/imported/Foice-Caveira.png-6ae6d71e7ad009abf521e447ce29c6e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Inimigo Demonio.png"
-dest_files=["res://.godot/imported/Inimigo Demonio.png-3bc730c11e347037d9f4e908577147af.ctex"]
+source_file="res://assets/sprites/Old/Foice-Caveira.png"
+dest_files=["res://.godot/imported/Foice-Caveira.png-6ae6d71e7ad009abf521e447ce29c6e3.ctex"]
 
 [params]
 

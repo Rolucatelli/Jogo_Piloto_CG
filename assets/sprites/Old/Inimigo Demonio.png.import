@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk5l2rcn6jfkc"
-path="res://.godot/imported/thanatos_Run.png-1c083cf344919c13f560056d03f6bfc3.ctex"
+uid="uid://cojx4253aibqv"
+path="res://.godot/imported/Inimigo Demonio.png-4f19d9ec4915a57644208b73e5ca736d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Personagens/Thanathos/thanatos_Run.png"
-dest_files=["res://.godot/imported/thanatos_Run.png-1c083cf344919c13f560056d03f6bfc3.ctex"]
+source_file="res://assets/sprites/Old/Inimigo Demonio.png"
+dest_files=["res://.godot/imported/Inimigo Demonio.png-4f19d9ec4915a57644208b73e5ca736d.ctex"]
 
 [params]
 

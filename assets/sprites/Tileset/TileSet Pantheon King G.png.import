@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd3r8wb5nxgqb"
-path="res://.godot/imported/Sofrendo-Dano-Caveira.png-a8192ed5a5a957a754dbbf191c3dbfed.ctex"
+uid="uid://cac6instvo6w7"
+path="res://.godot/imported/TileSet Pantheon King G.png-f00fd3a71d63f21d2e1f3445dce13488.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Sofrendo-Dano-Caveira.png"
-dest_files=["res://.godot/imported/Sofrendo-Dano-Caveira.png-a8192ed5a5a957a754dbbf191c3dbfed.ctex"]
+source_file="res://assets/sprites/Tileset/TileSet Pantheon King G.png"
+dest_files=["res://.godot/imported/TileSet Pantheon King G.png-f00fd3a71d63f21d2e1f3445dce13488.ctex"]
 
 [params]
 

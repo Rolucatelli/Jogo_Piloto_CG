@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1s205yaxitm4"
-path="res://.godot/imported/Ataque-Caveira-Sem-Foice.png-08a866fc3dc5c3708c39f712ae9ab26b.ctex"
+uid="uid://d4lpcao63gxfb"
+path="res://.godot/imported/thanatos.png-6c157577f777082d981c2495de59fb2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Ataque-Caveira-Sem-Foice.png"
-dest_files=["res://.godot/imported/Ataque-Caveira-Sem-Foice.png-08a866fc3dc5c3708c39f712ae9ab26b.ctex"]
+source_file="res://assets/sprites/Personagens/Thanathos/thanatos.png"
+dest_files=["res://.godot/imported/thanatos.png-6c157577f777082d981c2495de59fb2f.ctex"]
 
 [params]
 

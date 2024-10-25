@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7nx32pqo75gm"]
+
+[ext_resource type="Script" path="res://scripts/hit_area.gd" id="1_kgw8d"]
+
+[node name="HitArea" type="Area2D"]
+script = ExtResource("1_kgw8d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

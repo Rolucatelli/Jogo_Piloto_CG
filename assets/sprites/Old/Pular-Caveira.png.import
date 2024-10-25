@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://26u67hb6vd27"
-path="res://.godot/imported/Foice-Caveira.png-d399cb68dd69b5fa536f15d7e092d810.ctex"
+uid="uid://cgowipohsqs7l"
+path="res://.godot/imported/Pular-Caveira.png-3af9fb4a987744b63b099e2f348a58ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Foice-Caveira.png"
-dest_files=["res://.godot/imported/Foice-Caveira.png-d399cb68dd69b5fa536f15d7e092d810.ctex"]
+source_file="res://assets/sprites/Old/Pular-Caveira.png"
+dest_files=["res://.godot/imported/Pular-Caveira.png-3af9fb4a987744b63b099e2f348a58ad.ctex"]
 
 [params]
 

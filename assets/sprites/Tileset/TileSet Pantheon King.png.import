@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgowipohsqs7l"
-path="res://.godot/imported/Pular-Caveira.png-4a40a5987670ce0bb34bde171c51cd22.ctex"
+uid="uid://4of7jrqktacy"
+path="res://.godot/imported/TileSet Pantheon King.png-a30bfa9ba1c2299b4af3c1a40dd9d643.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Pular-Caveira.png"
-dest_files=["res://.godot/imported/Pular-Caveira.png-4a40a5987670ce0bb34bde171c51cd22.ctex"]
+source_file="res://assets/sprites/Tileset/TileSet Pantheon King.png"
+dest_files=["res://.godot/imported/TileSet Pantheon King.png-a30bfa9ba1c2299b4af3c1a40dd9d643.ctex"]
 
 [params]
 

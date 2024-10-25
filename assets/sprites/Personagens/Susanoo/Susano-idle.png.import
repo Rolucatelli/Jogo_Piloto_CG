@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cac6instvo6w7"
-path="res://.godot/imported/TileSet Pantheon King G.png-db50bbb46b8e9b878df7409dca7eb286.ctex"
+uid="uid://in2dg4sgcjsy"
+path="res://.godot/imported/Susano-idle.png-edc62e577202abd9006e3e3f1681fe56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/TileSet Pantheon King G.png"
-dest_files=["res://.godot/imported/TileSet Pantheon King G.png-db50bbb46b8e9b878df7409dca7eb286.ctex"]
+source_file="res://assets/sprites/Personagens/Susanoo/Susano-idle.png"
+dest_files=["res://.godot/imported/Susano-idle.png-edc62e577202abd9006e3e3f1681fe56.ctex"]
 
 [params]
 

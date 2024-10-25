@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fq06duyp88er"
-path="res://.godot/imported/thanatos_Jump.png-dc48294a3b003f652d9d860a3f006af1.ctex"
+uid="uid://lat46gj8y774"
+path="res://.godot/imported/Idle-Caveira.png-2c4b685f5ab73b866b08cba2baaa4137.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Personagens/Thanathos/thanatos_Jump.png"
-dest_files=["res://.godot/imported/thanatos_Jump.png-dc48294a3b003f652d9d860a3f006af1.ctex"]
+source_file="res://assets/sprites/Old/Idle-Caveira.png"
+dest_files=["res://.godot/imported/Idle-Caveira.png-2c4b685f5ab73b866b08cba2baaa4137.ctex"]
 
 [params]
 
