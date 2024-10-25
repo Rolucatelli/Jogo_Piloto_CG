@@ -5,6 +5,8 @@ extends Node2D
 @onready var dano_causado: Label = $DanoCausado
 @onready var area_2d: Area2D = $Area2D
 
+var dmgTaken := 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,4 +20,5 @@ func _process(delta: float) -> void:
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area is HitArea:
-		dano_causado.set_text(String.num_int64(area.dano))
+		dmgTaken += area.dano
+		dano_causado.set_text(String.num_int64(dmgTaken))
