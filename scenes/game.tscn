@@ -64,9 +64,9 @@ limit_bottom = 125
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="KillZone" parent="Arena" instance=ExtResource("5_niwij")]
+[node name="OutOfBoundsKillZone" parent="Arena" instance=ExtResource("5_niwij")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/KillZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/OutOfBoundsKillZone"]
 shape = SubResource("WorldBoundaryShape2D_2lop1")
 
 [node name="BonecoDeTreino" parent="." instance=ExtResource("5_4iq64")]
@@ -74,4 +74,4 @@ position = Vector2(-405, -90)
 scale = Vector2(1.75, 1.75)
 
 [connection signal="player_hit" from="Arena/Player" to="Arena" method="_on_player_player_hit"]
-[connection signal="player_died" from="Arena/KillZone" to="Arena" method="_on_kill_zone_player_died"]
+[connection signal="player_died" from="Arena/OutOfBoundsKillZone" to="Arena" method="_on_kill_zone_player_died"]
