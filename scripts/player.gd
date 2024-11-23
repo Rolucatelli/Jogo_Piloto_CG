@@ -2,21 +2,24 @@ class_name Player
 
 extends CharacterBody2D
 
-signal player_hit(hit_type: String)
-
-@onready var hit_area: HitArea = $DamageContainer/HitArea
-
 @export var vida := 3:
 	set(valor):
 		vida = clamp(valor, 0, 3)
 @export var dano := 0.0:
 	set(valor):
 		dano = clampf(float(valor), 0.0, 120.0)
+@export var jogador := 1:
+	set(valor):
+		jogador = clamp(valor, 1, 2)
 
 const SPEED = 115.0
 const JUMP_VELOCITY = -275.0
 
 var doubleJump := true
+
+var jump := "jump1" if jogador == 1 else "jump2"
+var left := "left1" if jogador == 1 else "left2"
+var right := "right1" if jogador == 1 else "right2"
 
 
 func _physics_process(delta: float) -> void:
@@ -27,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("jump1"):
+	if Input.is_action_just_pressed(jump):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		elif doubleJump:
@@ -40,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("left1", "right1")
+	var direction := Input.get_axis(left, right)
 	if direction:
 		velocity.x = direction * SPEED
 	else:

@@ -1,41 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://tklpsg1rynxl"]
+[gd_scene load_steps=7 format=3 uid="uid://tklpsg1rynxl"]
 
 [ext_resource type="Script" path="res://scripts/arena.gd" id="1_ode12"]
-[ext_resource type="PackedScene" uid="uid://bi2uesqpvdlmk" path="res://scenes/player.tscn" id="2_a4lqi"]
+[ext_resource type="PackedScene" uid="uid://cmojyhqbnsyk7" path="res://scenes/grassfield.tscn" id="2_bo4x3"]
+[ext_resource type="PackedScene" uid="uid://cuejyrxey55tr" path="res://scenes/thanatos.tscn" id="3_tph0l"]
 [ext_resource type="PackedScene" uid="uid://btw3shdlp0idq" path="res://scenes/boneco_de_treino.tscn" id="5_4iq64"]
-[ext_resource type="Texture2D" uid="uid://cac6instvo6w7" path="res://assets/sprites/Tileset/TileSet Pantheon King G.png" id="5_hbcu5"]
 [ext_resource type="PackedScene" uid="uid://cc7hvkm0b2siv" path="res://scenes/kill_zone.tscn" id="5_niwij"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eby27"]
-texture = ExtResource("5_hbcu5")
-texture_region_size = Vector2i(32, 32)
-8:0/0 = 0
-8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0, -16, 0)
-10:0/0 = 0
-10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0, -16, 0)
-12:0/0 = 0
-14:0/0 = 0
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -13.75, 16, -13.75, 16, 16, 0, 16, -16, -8)
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -13.75, 16, -13.75, 16, 16, -16, 16)
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -13.75, 16, -13.75, 16, -8, 0, 16, -16, 16)
-3:0/0 = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -13.75, 16, -13.75, 16, 0, -16, 0)
-4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -13.75, 16, -13.75, 16, 0, -16, 0)
-6:0/0 = 0
-5:0/0 = 0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -13.75, 16, -13.75, 16, 0, -16, 0)
-7:0/0 = 0
-7:1/0 = 0
-6:1/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_8aiir"]
-tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_eby27")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2lop1"]
 distance = -75.0
@@ -45,21 +14,15 @@ distance = -75.0
 [node name="Arena" type="Node" parent="."]
 script = ExtResource("1_ode12")
 
-[node name="TileMap2" type="TileMap" parent="Arena"]
-tile_set = SubResource("TileSet_8aiir")
-format = 2
-layer_0/name = "Ch"
-layer_0/tile_data = PackedInt32Array(65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 131072, 0, 65534, 65536, 0, 65533, 65536, 0, 65532, 65536, 0, 65531, 65536, 0, 65530, 0, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 65536, 0, -65526, 65536, 0, -65530, 0, 0, -65525, 131072, 0, -131059, 0, 0, -131058, 65536, 0, -131057, 131072, 0, -196591, 0, 0, -196590, 65536, 0, -196589, 131072, 0, -131051, 0, 0, -131050, 65536, 0, -131049, 131072, 0, -65511, 0, 0, -65510, 65536, 0, -65509, 65536, 0, -65508, 65536, 0, -65507, 65536, 0, -65506, 65536, 0, -65505, 65536, 0, -65504, 65536, 0, -65503, 65536, 0, -65502, 65536, 0, -65501, 131072, 0, -8, 327680, 0, -9, 262144, 0, -10, 262144, 0, -11, 262144, 0, -12, 262144, 0, -13, 262144, 0, -14, 196608, 0, -65554, 196608, 0, -65553, 262144, 0, -65552, 327680, 0, -131094, 196608, 0, -131093, 262144, 0, -131092, 327680, 0, -196634, 196608, 0, -196633, 262144, 0, -196632, 327680, 0, -131100, 327680, 0, -131101, 262144, 0, -131102, 262144, 0, -131103, 262144, 0, -131104, 262144, 0, -131105, 262144, 0, -131106, 262144, 0, -131107, 262144, 0, -131108, 262144, 0, -131109, 262144, 0, -131110, 196608, 0)
-layer_1/name = "Layer1"
-layer_1/z_index = -1
-layer_1/tile_data = PackedInt32Array(65531, 458752, 1, -65526, 458752, 1, -131059, 458752, 1, -131051, 458752, 1, -65510, 458752, 1, -65504, 458752, 1, -131046, 458752, 0, -131040, 458752, 0, -196587, 458752, 0, -196595, 458752, 0, -131062, 458752, 0, -5, 458752, 0, -9, 393216, 1, -65552, 393216, 1, -65554, 393216, 1, -131092, 393216, 1, -131094, 393216, 1, -196632, 393216, 1, -196634, 393216, 1, -131101, 393216, 1, -131110, 393216, 1, -196646, 393216, 0, -196637, 393216, 0, -262170, 393216, 0, -262168, 393216, 0, -196630, 393216, 0, -196628, 393216, 0, -131090, 393216, 0, -131088, 393216, 0, -65545, 393216, 0)
+[node name="Grassfield" parent="Arena" instance=ExtResource("2_bo4x3")]
 
-[node name="Player" parent="Arena" instance=ExtResource("2_a4lqi")]
-visibility_layer = 4
-position = Vector2(-50, -74)
+[node name="Player1" parent="Arena" instance=ExtResource("3_tph0l")]
+position = Vector2(10, -78)
 
-[node name="Camera2D" type="Camera2D" parent="Arena/Player"]
-zoom = Vector2(2, 2)
+[node name="Camera2D" type="Camera2D" parent="Arena/Player1"]
+position = Vector2(-2.99999, -42)
+rotation = 0.0523599
+zoom = Vector2(1.25, 1.25)
 limit_bottom = 125
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -70,8 +33,7 @@ position_smoothing_enabled = true
 shape = SubResource("WorldBoundaryShape2D_2lop1")
 
 [node name="BonecoDeTreino" parent="." instance=ExtResource("5_4iq64")]
-position = Vector2(-405, -90)
+position = Vector2(-408, -118)
 scale = Vector2(1.75, 1.75)
 
-[connection signal="player_hit" from="Arena/Player" to="Arena" method="_on_player_player_hit"]
 [connection signal="player_died" from="Arena/OutOfBoundsKillZone" to="Arena" method="_on_kill_zone_player_died"]
