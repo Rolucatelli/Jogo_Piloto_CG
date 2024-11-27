@@ -1,10 +1,12 @@
 extends AnimationPlayer
 
 @onready var player: Player = $".."
-@onready var sprite_player: Sprite2D = $"../SpritePlayer"
+#@onready var sprite_player: Sprite2D = $"../SpritePlayer"
 @onready var wait_jump_1: Timer = $"../WaitJump1"
 @onready var attack_speed: Timer = $"../DamageContainer/AttackSpeed"
 @onready var ray_cast_2d: RayCast2D = $"../HitboxPlayerMove/RayCast2D"
+
+
 
 var lastDirection := 0.01
 var jumping := false

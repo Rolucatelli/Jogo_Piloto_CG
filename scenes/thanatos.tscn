@@ -1,9 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://cuejyrxey55tr"]
+[gd_scene load_steps=19 format=3 uid="uid://cuejyrxey55tr"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_37hd1"]
 [ext_resource type="Texture2D" uid="uid://d4lpcao63gxfb" path="res://assets/sprites/Personagens/Thanathos/thanatos.png" id="2_0d684"]
-[ext_resource type="Script" path="res://scripts/animation_player.gd" id="3_4kdyd"]
-[ext_resource type="Script" path="res://scripts/damage_container.gd" id="4_pk1a4"]
 [ext_resource type="Script" path="res://scripts/hit_area.gd" id="5_a8nbu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n8try"]
@@ -2332,8 +2330,26 @@ _data = {
 "Run_E": SubResource("Animation_vnome")
 }
 
-[node name="Thanatos" type="CharacterBody2D"]
+[node name="Thanatos" type="CharacterBody2D" node_paths=PackedStringArray("hit_area", "sprite_arma", "attack_speed", "animation_player", "sprite_player", "wait_jump_1", "hitbox_player_move")]
 script = ExtResource("1_37hd1")
+jogador = 2
+hit_area = NodePath("DamageContainer/HitArea")
+sprite_arma = NodePath("DamageContainer/SpriteArma")
+attack_speed = NodePath("DamageContainer/AttackSpeed")
+animation_player = NodePath("AnimationPlayer")
+sprite_player = NodePath("SpritePlayer")
+wait_jump_1 = NodePath("WaitJump1")
+hitbox_player_move = NodePath("HitboxPlayerMove")
+ataque_sem_arma_D = "Ataque_SA_1_D"
+ataque_sem_arma_E = "Ataque_SA_1_E"
+correr_D = "Run_D"
+correr_E = "Run_E"
+idle_D = "Idle_D"
+idle_E = "Idle_E"
+no_ar_D = "OnAir_D"
+no_ar_E = "OnAir_E"
+pulo_D = "Jump_1_D"
+pulo_E = "Jump_1_E"
 
 [node name="HitboxPlayerMove" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 3)
@@ -2348,7 +2364,6 @@ libraries = {
 "": SubResource("AnimationLibrary_jrtlw")
 }
 autoplay = "Idle_D"
-script = ExtResource("3_4kdyd")
 
 [node name="SpritePlayer" type="Sprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
@@ -2361,10 +2376,10 @@ wait_time = 0.333
 one_shot = true
 
 [node name="DamageContainer" type="Node2D" parent="."]
-script = ExtResource("4_pk1a4")
 
 [node name="HitArea" type="Area2D" parent="DamageContainer"]
 script = ExtResource("5_a8nbu")
+dano = 3
 
 [node name="HitAreaShape" type="CollisionShape2D" parent="DamageContainer/HitArea"]
 position = Vector2(26, -4)
@@ -2377,8 +2392,9 @@ wait_time = 0.35
 one_shot = true
 
 [node name="HitBoxPlayerDmg" type="Area2D" parent="."]
-script = ExtResource("5_a8nbu")
 
 [node name="HitBoxPlayerShape" type="CollisionShape2D" parent="HitBoxPlayerDmg"]
 position = Vector2(-5, 9.5)
 shape = SubResource("RectangleShape2D_lxor8")
+
+[connection signal="body_entered" from="DamageContainer/HitArea" to="." method="_on_hit_area_body_entered"]
