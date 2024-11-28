@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://tklpsg1rynxl"]
+[gd_scene load_steps=6 format=3 uid="uid://tklpsg1rynxl"]
 
 [ext_resource type="Script" path="res://scripts/arena.gd" id="1_ode12"]
 [ext_resource type="PackedScene" uid="uid://cmojyhqbnsyk7" path="res://scenes/greek.tscn" id="2_bo4x3"]
 [ext_resource type="PackedScene" uid="uid://cuejyrxey55tr" path="res://scenes/thanatos.tscn" id="3_tph0l"]
+[ext_resource type="AudioStream" uid="uid://busnmg71qjw2b" path="res://assets/music/Infraction-Adrenaline-Rush-pr.mp3" id="4_1d0yg"]
 [ext_resource type="PackedScene" uid="uid://btw3shdlp0idq" path="res://scenes/boneco_de_treino.tscn" id="5_4iq64"]
 
 [node name="Game" type="Node2D"]
@@ -33,3 +34,8 @@ position_smoothing_enabled = true
 [node name="BonecoDeTreino" parent="." instance=ExtResource("5_4iq64")]
 position = Vector2(-781, -193)
 scale = Vector2(1.75, 1.75)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1d0yg")
+volume_db = -31.2
+autoplay = true

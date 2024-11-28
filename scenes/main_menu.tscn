@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhmd1nwro4ag3"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_s275a"]
+[ext_resource type="Texture2D" uid="uid://b0kwl51eybn2h" path="res://assets/images/jogar-normal.png" id="2_opmcu"]
+[ext_resource type="Texture2D" uid="uid://c56104lrfwmji" path="res://assets/images/wallpaper-start.png" id="2_wrtlv"]
+[ext_resource type="Texture2D" uid="uid://dwndb3d8jja60" path="res://assets/images/jogar-pressionado.png" id="3_f5kyt"]
+[ext_resource type="Texture2D" uid="uid://cnbnwgvi3jc2w" path="res://assets/images/sair-normal.png" id="4_evsxx"]
+[ext_resource type="Texture2D" uid="uid://dniqk8o0vxru2" path="res://assets/images/sair-pressionado.png" id="5_ydy7l"]
+[ext_resource type="PackedScene" uid="uid://dlu7oo4sjskqr" path="res://scenes/fade_transtion.tscn" id="7_ddkrd"]
+[ext_resource type="AudioStream" uid="uid://cxqywapl4xn0c" path="res://assets/music/Independence - Another Way.ogg" id="8_73h6j"]
+[ext_resource type="AudioStream" uid="uid://bk3ct2bw0gkq8" path="res://assets/sounds/button-select.wav" id="9_45cqy"]
+
+[node name="Main_menu" type="Node2D"]
+script = ExtResource("1_s275a")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.997917, 0.998148)
+texture = ExtResource("2_wrtlv")
+
+[node name="Button_manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Jogar" type="TextureButton" parent="Button_manager"]
+layout_mode = 0
+offset_left = 737.0
+offset_top = 692.0
+offset_right = 1137.0
+offset_bottom = 852.0
+texture_normal = ExtResource("2_opmcu")
+texture_pressed = ExtResource("3_f5kyt")
+texture_hover = ExtResource("3_f5kyt")
+
+[node name="Sair" type="TextureButton" parent="Button_manager"]
+layout_mode = 0
+offset_left = 735.0
+offset_top = 857.0
+offset_right = 1135.0
+offset_bottom = 1017.0
+texture_normal = ExtResource("4_evsxx")
+texture_pressed = ExtResource("5_ydy7l")
+texture_hover = ExtResource("5_ydy7l")
+
+[node name="Fade_transition" parent="." instance=ExtResource("7_ddkrd")]
+visible = false
+
+[node name="fade_timer" type="Timer" parent="Fade_transition"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_73h6j")
+volume_db = -29.245
+autoplay = true
+
+[node name="button_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_45cqy")
+volume_db = -16.8
+
+[connection signal="pressed" from="Button_manager/Jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="Button_manager/Sair" to="." method="_on_sair_pressed"]
+[connection signal="timeout" from="Fade_transition/fade_timer" to="." method="_on_fade_timer_timeout"]
