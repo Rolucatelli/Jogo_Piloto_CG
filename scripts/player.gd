@@ -2,9 +2,8 @@ class_name Player
 
 extends CharacterBody2D
 
-const SPEED = 115.0
+const SPEED = 230.0
 const JUMP_VELOCITY = -275.0
-enum Arma {NENHUMA, ARMA1, ARMA2}
 enum Jogador {JOGADOR1 = 1, JOGADOR2 = 2}
 
 @export_category("Player Values")
@@ -20,7 +19,7 @@ enum Jogador {JOGADOR1 = 1, JOGADOR2 = 2}
 ## Define os controles do personagem
 @export var jogador : Jogador
 ## Define a arma do jogador
-@export var arma := Arma.NENHUMA
+@export var arma := false
 
 @export_group("Damage Container")
 @export var hit_area : Node2D
@@ -31,9 +30,15 @@ enum Jogador {JOGADOR1 = 1, JOGADOR2 = 2}
 @export var sprite_player: Sprite2D
 @export var wait_jump_1: Timer
 @export var hitbox_player_move: CollisionShape2D
-@export_subgroup("Animations")
-@export var ataque_sem_arma_D : String
-@export var ataque_sem_arma_E : String
+@export_subgroup("Animacoes Sem Arma")
+@export var ataque_sem_arma_1_D : String
+@export var ataque_sem_arma_1_E : String
+@export var ataque_sem_arma_2_D : String
+@export var ataque_sem_arma_2_E : String
+@export var ataque_sem_arma_3_D : String
+@export var ataque_sem_arma_3_E : String
+@export var pegar_item_D : String
+@export var pegar_item_E : String
 @export var correr_D : String
 @export var correr_E : String
 @export var idle_D : String
@@ -42,12 +47,29 @@ enum Jogador {JOGADOR1 = 1, JOGADOR2 = 2}
 @export var no_ar_E : String
 @export var pulo_D : String
 @export var pulo_E : String
+@export_subgroup("Animacoes Com Arma")
+@export var ataque_com_arma_1_D : String
+@export var ataque_com_arma_1_E : String
+@export var ataque_com_arma_2_D : String
+@export var ataque_com_arma_2_E : String
+@export var ataque_com_arma_3_D : String
+@export var ataque_com_arma_3_E : String
+@export var levantar_item_D : String
+@export var levantar_item_E : String
+@export var correr_arma_D : String
+@export var correr_arma_E : String
+@export var idle_arma_D : String
+@export var idle_arma_E : String
+@export var no_ar_arma_D : String
+@export var no_ar_arma_E : String
+@export var pulo_arma_D : String
+@export var pulo_arma_E : String
 
 
 
 
 
-
+var lastDano := dano
 var doubleJump := true
 
 @onready var jump := "jump1" if (jogador == 1) else "jump2"
@@ -56,10 +78,14 @@ var doubleJump := true
 @onready var down := "down1" if (jogador == 1) else "down2"
 @onready var attack := "attack1" if (jogador == 1) else "attack2"
 @onready var special := "special1" if (jogador == 1) else "special2"
+@onready var interact := "interact1" if (jogador == 1) else "interact2"
+
 
 
 func _physics_process(delta: float) -> void:
 	
+	set_collision_layer_value(5, jogador == 1)
+	set_collision_layer_value(6, jogador == 2)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -67,7 +93,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle jump.
 	if Input.is_action_just_pressed(jump):
-		print(jogador)
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		elif doubleJump:
@@ -88,6 +113,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
+	if dano != 0:
+		print(dano)
+	
 	move_and_slide()
 	animation()
 	
@@ -107,9 +135,9 @@ func animation():
 		if Input.is_action_pressed(attack):
 			attack_speed.start()
 			if lastDirection > 0: # Se a ultima direcao do player foi para a direita
-				animation_player.play(ataque_sem_arma_D)
+				animation_player.play(ataque_sem_arma_1_D)
 			else: # Se a ultima direcao do player foi para a esquerda
-				animation_player.play(ataque_sem_arma_E)
+				animation_player.play(ataque_sem_arma_1_E)
 			
 		elif is_on_floor(): # Se o player ta no chao
 			wasOnAir = false

@@ -1,0 +1,170 @@
+[gd_scene load_steps=15 format=4 uid="uid://cmojyhqbnsyk7"]
+
+[ext_resource type="Texture2D" uid="uid://cac6instvo6w7" path="res://assets/sprites/Tileset/TileSet Pantheon King G.png" id="1_h5ou5"]
+[ext_resource type="PackedScene" uid="uid://cc7hvkm0b2siv" path="res://scenes/kill_zone.tscn" id="2_srcib"]
+[ext_resource type="PackedScene" uid="uid://gyvx3dg8fjc3" path="res://scenes/plataforma.tscn" id="3_gusol"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hmdvc"]
+texture = ExtResource("1_h5ou5")
+texture_region_size = Vector2i(32, 32)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, 16, -14, 16, -0.25, -16, 0)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, 16, -14, 16, -0.25, -16, 0)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, 16, -14, 16, -0.25, -16, 0)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, 16, -14, 16, 16, -0.25, 16, -16, -8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, 16, -14, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, 16, -14, 16, -9.5, 0.5, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, 16, -14, 16, 16, -0.25, 16, -16, -5.25)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, 16, -14, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, 16, -14, 16, -6, 0.5, 16, -16, 16)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, 16, -14, 16, -1.25, 0.25, 14, -16, -0.5)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, 16, -14, 16, -1.25, 0.25, 14, -16, -0.5)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, 16, -14, 16, -1.25, 0.25, 14, -16, -0.5)
+
+[sub_resource type="TileSet" id="TileSet_0hinv"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_hmdvc")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dwls7"]
+texture = ExtResource("1_h5ou5")
+texture_region_size = Vector2i(32, 32)
+6:0/0 = 0
+6:1/0 = 0
+7:0/0 = 0
+7:1/0 = 0
+6:2/0 = 0
+6:3/0 = 0
+7:2/0 = 0
+7:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_p4i2r"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_dwls7")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3qgrd"]
+distance = -75.0
+
+[sub_resource type="Animation" id="Animation_iy3gv"]
+resource_name = "Mover pra baixop"
+length = 4.0
+loop_mode = 2
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(168, -425), Vector2(168, -235)]
+}
+
+[sub_resource type="Animation" id="Animation_1f3q1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(47, -425)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gaayc"]
+_data = {
+"Mover pra baixop": SubResource("Animation_iy3gv"),
+"RESET": SubResource("Animation_1f3q1")
+}
+
+[sub_resource type="Animation" id="Animation_dey6o"]
+resource_name = "Ladin"
+length = 4.0
+loop_mode = 2
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(47, -437), Vector2(-165, -437)]
+}
+
+[sub_resource type="Animation" id="Animation_vcysa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-165, -437)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jv21i"]
+_data = {
+"Ladin": SubResource("Animation_dey6o"),
+"RESET": SubResource("Animation_vcysa")
+}
+
+[node name="Greek" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AADx//z/AQADAAEAAADy//z/AQAFAAEAAADz//z/AQAEAAEAAAD0//z/AQADAAEAAAD1//z/AQAFAAEAAAD2//z/AQAEAAEAAAD3//z/AQADAAEAAAD4//z/AQAEAAEAAAD5//z/AQAFAAEAAAD6//z/AQAEAAEAAAD7//z/AQAFAAEAAAD8//z/AQADAAEAAAD9//z/AQAEAAEAAAD+//z/AQAFAAEAAAD///z/AQADAAEAAAAAAPz/AQAFAAEAAAABAPz/AQAEAAEAAAACAPz/AQADAAEAAAADAPz/AQAFAAEAAAAEAPz/AQAEAAEAAADm//z/AQAEAAEAAADn//z/AQAFAAEAAADo//z/AQADAAEAAADp//z/AQAEAAEAAADq//z/AQAFAAEAAADr//z/AQADAAEAAADs//z/AQAFAAEAAADt//z/AQAEAAEAAADu//z/AQADAAEAAADv//z/AQAFAAEAAADw//z/AQAEAAEAAAAJAPr/AQADAAEAAAAKAPr/AQAFAAEAAAALAPr/AQAEAAEAAAAMAPr/AQAFAAEAAAANAPr/AQAEAAEAAAAOAPr/AQADAAEAAAAPAPr/AQAFAAEAAAAQAPr/AQAEAAEAAAARAPr/AQADAAEAAAASAPr/AQAFAAEAAAATAPr/AQAEAAEAAAAUAPr/AQAFAAEAAAAVAPr/AQAEAAEAAAAWAPr/AQADAAEAAAAXAPr/AQAFAAEAAAAYAPr/AQAEAAEAAADr//L/AQADAAEAAADs//L/AQAFAAEAAADt//L/AQAEAAEAAADu//L/AQADAAEAAADv//L/AQAFAAEAAADw//L/AQAEAAEAAADx//L/AQAFAAEAAADy//L/AQADAAEAAADz//L/AQAFAAEAAAD0//L/AQAEAAEAAAD1//L/AQADAAEAAAD2//L/AQAFAAEAAAD3//L/AQAEAAEAAADn//L/AQADAAEAAADo//L/AQAFAAEAAADp//L/AQAEAAEAAADq//L/AQAFAAEAAAA=")
+tile_set = SubResource("TileSet_0hinv")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AADo//v/AAAHAAIAAADo//z/AAAHAAMAAADw//v/AAAHAAIAAADw//z/AAAHAAMAAADx//z/AAAHAAMAAADz//v/AAAHAAIAAADz//z/AAAHAAMAAAADAPv/AAAHAAIAAAADAPz/AAAHAAMAAAD3//L/AAAHAAMAAADu//L/AAAHAAMAAAAWAPn/AAAHAAIAAAAWAPr/AAAHAAMAAAAMAPn/AAAHAAIAAAAMAPr/AAAHAAMAAADq//H/AAAHAAIAAADz//H/AAAHAAIAAAA=")
+tile_set = SubResource("TileSet_p4i2r")
+
+[node name="OutOfBoundsKillZone" parent="." instance=ExtResource("2_srcib")]
+position = Vector2(0, 112)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutOfBoundsKillZone"]
+position = Vector2(1, 25)
+shape = SubResource("WorldBoundaryShape2D_3qgrd")
+
+[node name="PlataformaVertical" parent="." instance=ExtResource("3_gusol")]
+position = Vector2(47, -425)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlataformaVertical"]
+libraries = {
+"": SubResource("AnimationLibrary_gaayc")
+}
+autoplay = "Mover pra baixop"
+
+[node name="PlataformaHorizontal" parent="." instance=ExtResource("3_gusol")]
+position = Vector2(-165, -437)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlataformaHorizontal"]
+libraries = {
+"": SubResource("AnimationLibrary_jv21i")
+}
+autoplay = "Ladin"
