@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://in2dg4sgcjsy"
-path="res://.godot/imported/Susano-idle.png-edc62e577202abd9006e3e3f1681fe56.ctex"
+uid="uid://dn11ec4h5vow3"
+path="res://.godot/imported/Susanoo_A_Corrida.png-0eb58e309fbbbca6d66dd95bc1b889cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Personagens/Susanoo/Susano-idle.png"
-dest_files=["res://.godot/imported/Susano-idle.png-edc62e577202abd9006e3e3f1681fe56.ctex"]
+source_file="res://assets/sprites/Personagens/Susanoo/Susanoo_A_Corrida.png"
+dest_files=["res://.godot/imported/Susanoo_A_Corrida.png-0eb58e309fbbbca6d66dd95bc1b889cc.ctex"]
 
 [params]
 

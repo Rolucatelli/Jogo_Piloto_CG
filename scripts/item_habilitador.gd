@@ -23,6 +23,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	
+	
 	if ray_cast_2d.is_colliding():
 		animation_player.play("Queda")
 		animation_player.queue("Loop")
@@ -35,6 +37,8 @@ func _process(delta: float) -> void:
 			player.arma = true
 			onArea = false
 	
+	if rotation != 0:
+		rotation = 0
 	
 
 
@@ -50,6 +54,6 @@ func _on_interaction_range_body_exited(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	visible = true
 	interaction_range.monitoring = true
-	position.y -= 1000
+	position.y -= 400
 	position.x = randf_range(max_X, min_X)
 	

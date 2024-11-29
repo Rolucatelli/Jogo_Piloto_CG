@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://tklpsg1rynxl"]
+[gd_scene load_steps=12 format=3 uid="uid://tklpsg1rynxl"]
 
 [ext_resource type="Script" path="res://scripts/arena.gd" id="1_ode12"]
 [ext_resource type="PackedScene" uid="uid://cmojyhqbnsyk7" path="res://scenes/greek.tscn" id="2_bo4x3"]
 [ext_resource type="PackedScene" uid="uid://djuamtw2tt7lx" path="res://scenes/egypt.tscn" id="2_vapxy"]
 [ext_resource type="PackedScene" uid="uid://cuejyrxey55tr" path="res://scenes/thanatos.tscn" id="3_tph0l"]
 [ext_resource type="AudioStream" uid="uid://busnmg71qjw2b" path="res://assets/music/Infraction-Adrenaline-Rush-pr.mp3" id="4_1d0yg"]
+[ext_resource type="PackedScene" uid="uid://dbb5o6ynxkqd4" path="res://scenes/susanoo.tscn" id="5_cv3mu"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="5_k0dpi"]
+[ext_resource type="AudioStream" uid="uid://dsr5g15guelpq" path="res://assets/music/win-game.ogg" id="8_mebgj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jumwy"]
 font_size = 56
@@ -33,8 +35,8 @@ collision_layer = 0
 collision_mask = 3
 jogador = 1
 
-[node name="Player2" parent="Arena" instance=ExtResource("3_tph0l")]
-position = Vector2(48, -212)
+[node name="Player2" parent="Arena" instance=ExtResource("5_cv3mu")]
+position = Vector2(63, -202)
 collision_layer = 0
 collision_mask = 3
 
@@ -127,5 +129,9 @@ offset_top = 242.0
 offset_right = 625.0
 offset_bottom = 318.0
 text = "Main Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Ui/VictoryLabel"]
+stream = ExtResource("8_mebgj")
+volume_db = -15.0
 
 [connection signal="pressed" from="Ui/VictoryLabel/Button" to="Ui" method="_on_button_pressed"]

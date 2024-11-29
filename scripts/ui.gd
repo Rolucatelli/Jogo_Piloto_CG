@@ -7,6 +7,7 @@ extends Control
 @onready var player_1: Player = $"../Arena/Player1"
 @onready var player_2: Player = $"../Arena/Player2"
 @onready var victory_label: Label = $VictoryLabel
+@onready var audio_stream_player: AudioStreamPlayer = $VictoryLabel/AudioStreamPlayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,12 +22,14 @@ func _process(delta: float) -> void:
 	p_1_vida.text = "Vidas: " + str(player_1.vida)
 	p_1_dano.text = "Dano: " + str(player_1.dano)
 	
-	if player_1.vida <= 0:
+	if player_1.vida <= 0 and not audio_stream_player.playing:
 		victory_label.text = str("Player ", player_2.jogador, " Wins!")
 		victory_label.visible = true
-	elif player_2.vida <= 0:
+		audio_stream_player.play()
+	elif player_2.vida <= 0 and not audio_stream_player.playing:
 		victory_label.text = str("Player ", player_1.jogador, " Wins!")
 		victory_label.visible = true
+		audio_stream_player.play()
 
 
 func _on_button_pressed() -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3llaoyokatmq"
-path="res://.godot/imported/SegurandoArma2Susano.png-50e4552939ec0ab18db1969d4d77a554.ctex"
+uid="uid://b8ft1slydp4g1"
+path="res://.godot/imported/Susanoo_Levantar_Item.png-30ea8a6923a6bacae467205b4ced1b8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Personagens/Susanoo/SegurandoArma2Susano.png"
-dest_files=["res://.godot/imported/SegurandoArma2Susano.png-50e4552939ec0ab18db1969d4d77a554.ctex"]
+source_file="res://assets/sprites/Personagens/Susanoo/Susanoo_Levantar_Item.png"
+dest_files=["res://.godot/imported/Susanoo_Levantar_Item.png-30ea8a6923a6bacae467205b4ced1b8c.ctex"]
 
 [params]
 

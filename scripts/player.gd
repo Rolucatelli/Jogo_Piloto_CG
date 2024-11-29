@@ -109,7 +109,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 			doubleJump = true
 	
-	if dano >= 100 and arma and hitCombo == 2:
+	if dano >= 119:
 		die()
 	
 	if arma and weapon_dismiss.is_stopped():
@@ -319,91 +319,6 @@ func animation():
 				
 				
 
-#
-#if attack_speed.is_stopped():
-		#
-		#var direction := Input.get_axis(left, right)
-		#
-		#if Input.is_action_pressed(attack) or nextHit:
-			#nextHit = false
-			#if hitCombo == 0 :
-				#if lastDirection > 0: # Se a ultima direcao do player foi para a direita
-					#animation_player.play(ataque_sem_arma_1_D)
-				#else: # Se a ultima direcao do player foi para a esquerda
-					#animation_player.play(ataque_sem_arma_1_E)
-			#elif hitCombo == 1:
-				#if lastDirection > 0: # Se a ultima direcao do player foi para a direita
-					#animation_player.play(ataque_sem_arma_2_D)
-				#else: # Se a ultima direcao do player foi para a esquerda
-					#animation_player.play(ataque_sem_arma_2_E)
-			#elif hitCombo == 2:
-				#if lastDirection > 0: # Se a ultima direcao do player foi para a direita
-					#animation_player.play(ataque_sem_arma_3_D)
-				#else: # Se a ultima direcao do player foi para a esquerda
-					#animation_player.play(ataque_sem_arma_3_E)
-			#else:
-				#hitCombo = 0
-			#
-			#attack_speed.start()
-			#
-			#
-			#
-			#
-			#
-			#
-			#
-		#elif is_on_floor(): # Se o player ta no chao
-			#hitCombo = 0
-			#nextHit = false
-			#wasOnAir = false
-			#if direction > 0: # Se o player ta indo para a direita
-				#animation_player.play(correr_D)
-			#elif direction < 0: # Se o player ta indo para a esquerda
-				#animation_player.play(correr_E)
-			#else: # Se o player ta parado
-				#
-				#if lastDirection > 0: # Se a ultima direcao do player foi para a direita
-					#animation_player.play(idle_D)
-				#else: # Se a ultima direcao do player foi para a esquerda
-					#animation_player.play(idle_E)
-				#
-				#
-		#else: # Se o player NAO ta no chao
-			#hitCombo = 0
-			#nextHit = false
-			#if wasOnAir: # Se o player tava no ar
-				#if hitbox_player_move.get_child(0).is_colliding(): # Se ele ta para pousar no chao
-					#wasOnAir = false
-					#if lastDirection > 0: # Se o player ta indo para a direita
-						#animation_player.play(idle_D)
-					#else: # Se o player ta indo para a esquerda
-						#animation_player.play(idle_E)
-				#elif wait_jump_1.is_stopped(): # Se a animacao de pular acabou
-					#if lastDirection > 0: # Se o player tava indo para a direita
-						#animation_player.play(no_ar_D)
-					#else: # Se o player tava indo para a esquerda
-						#animation_player.play(no_ar_E)
-					#
-				#
-			#else: # Se o player NAO tava no ar
-				#wasOnAir = true
-				#if lastDirection > 0: # Se a ultima direcao do player foi para a direita
-					#animation_player.play(pulo_D)
-					#wait_jump_1.start()
-				#else:  # Se a ultima direcao do player foi para a esquerda
-					#animation_player.play(pulo_E)
-					#wait_jump_1.start()
-				#
-			#
-		#
-		#if direction != 0.0:
-			#lastDirection = direction
-		#
-	#else :
-		#if Input.is_action_just_pressed(attack) and not nextHit:
-			#hitCombo += 1
-			#nextHit = true
-			#
 
 
 func _on_weapon_dismiss_timeout() -> void:
