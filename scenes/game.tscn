@@ -27,7 +27,6 @@ collision_mask = 3
 [node name="Camera2D" type="Camera2D" parent="Arena"]
 position = Vector2(-0.999996, -369)
 rotation = 0.0523599
-zoom = Vector2(0.5, 0.5)
 limit_smoothed = true
 position_smoothing_enabled = true
 

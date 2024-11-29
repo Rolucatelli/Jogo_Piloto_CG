@@ -119,12 +119,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	animation()
 	
-	
+	animation_player.is_playing()
 
 
 var lastDirection := 0.01
 var jumping := false
 var wasOnAir := false
+var hitCombo := 0
+var nextHit := false
 
 func animation():
 	
@@ -132,14 +134,37 @@ func animation():
 		
 		var direction := Input.get_axis(left, right)
 		
-		if Input.is_action_pressed(attack):
+		if Input.is_action_pressed(attack) or nextHit:
+			nextHit = false
+			if hitCombo == 0 :
+				if lastDirection > 0: # Se a ultima direcao do player foi para a direita
+					animation_player.play(ataque_sem_arma_1_D)
+				else: # Se a ultima direcao do player foi para a esquerda
+					animation_player.play(ataque_sem_arma_1_E)
+			elif hitCombo == 1:
+				if lastDirection > 0: # Se a ultima direcao do player foi para a direita
+					animation_player.play(ataque_sem_arma_2_D)
+				else: # Se a ultima direcao do player foi para a esquerda
+					animation_player.play(ataque_sem_arma_2_E)
+			elif hitCombo == 2:
+				if lastDirection > 0: # Se a ultima direcao do player foi para a direita
+					animation_player.play(ataque_sem_arma_3_D)
+				else: # Se a ultima direcao do player foi para a esquerda
+					animation_player.play(ataque_sem_arma_3_E)
+			else:
+				hitCombo = 0
+			
 			attack_speed.start()
-			if lastDirection > 0: # Se a ultima direcao do player foi para a direita
-				animation_player.play(ataque_sem_arma_1_D)
-			else: # Se a ultima direcao do player foi para a esquerda
-				animation_player.play(ataque_sem_arma_1_E)
+			
+			
+			
+			
+			
+			
 			
 		elif is_on_floor(): # Se o player ta no chao
+			hitCombo = 0
+			nextHit = false
 			wasOnAir = false
 			if direction > 0: # Se o player ta indo para a direita
 				animation_player.play(correr_D)
@@ -154,7 +179,8 @@ func animation():
 				
 				
 		else: # Se o player NAO ta no chao
-			
+			hitCombo = 0
+			nextHit = false
 			if wasOnAir: # Se o player tava no ar
 				if hitbox_player_move.get_child(0).is_colliding(): # Se ele ta para pousar no chao
 					wasOnAir = false
@@ -180,6 +206,11 @@ func animation():
 				
 			
 		
-		
 		if direction != 0.0:
 			lastDirection = direction
+		
+	else :
+		if Input.is_action_just_pressed(attack) and not nextHit:
+			hitCombo += 1
+			nextHit = true
+			
