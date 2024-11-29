@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://cmojyhqbnsyk7"]
+[gd_scene load_steps=16 format=4 uid="uid://cmojyhqbnsyk7"]
 
 [ext_resource type="Texture2D" uid="uid://cac6instvo6w7" path="res://assets/sprites/Tileset/TileSet Pantheon King G.png" id="1_h5ou5"]
 [ext_resource type="PackedScene" uid="uid://cc7hvkm0b2siv" path="res://scenes/kill_zone.tscn" id="2_srcib"]
 [ext_resource type="PackedScene" uid="uid://gyvx3dg8fjc3" path="res://scenes/plataforma.tscn" id="3_gusol"]
+[ext_resource type="PackedScene" uid="uid://cdlfkdp5o6veg" path="res://scenes/item_habilitador.tscn" id="4_eta6l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hmdvc"]
 texture = ExtResource("1_h5ou5")
@@ -168,3 +169,8 @@ libraries = {
 "": SubResource("AnimationLibrary_jv21i")
 }
 autoplay = "Ladin"
+
+[node name="ItemHabilitador" parent="." instance=ExtResource("4_eta6l")]
+position = Vector2(651, -509)
+max_X = 800.0
+min_X = -830.0

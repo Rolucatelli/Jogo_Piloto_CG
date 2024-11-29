@@ -5,28 +5,51 @@ extends RigidBody2D
 @onready var hit_box: CollisionShape2D = $HitBox
 @onready var ray_cast_2d: RayCast2D = $HitBox/RayCast2D
 
-@export var caiu := false
+@export var max_X := 0.0
+@export var min_X := 0.0
 
+
+var player : Node2D
+var onArea := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	visible = false
+	interaction_range.monitoring = false
+	
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if ray_cast_2d.is_colliding():
 		animation_player.play("Queda")
+		animation_player.queue("Loop")
 		ray_cast_2d.enabled = false
 	
-	if caiu:
-		animation_player.play("Loop")
+	if player and onArea and Input.is_action_just_pressed(player.interact):
+		if not player.arma:
+			visible = false
+			interaction_range.monitoring = false
+			player.arma = true
+			onArea = false
 	
 	
 
 
 func _on_interaction_range_body_entered(body: Node2D) -> void:
-	if body is Player and Input.is_action_pressed(body.interaction):
-		visible = false
-		body.emit_signal("EquiparArma")
-	pass
+	onArea = true
+	player = body
+
+
+func _on_interaction_range_body_exited(body: Node2D) -> void:
+	onArea = false
+
+
+func _on_timer_timeout() -> void:
+	visible = true
+	interaction_range.monitoring = true
+	position.y -= 1000
+	position.x = randf_range(max_X, min_X)
+	
