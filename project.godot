@@ -14,6 +14,7 @@ config/name="The Pantheon King"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [display]
 
