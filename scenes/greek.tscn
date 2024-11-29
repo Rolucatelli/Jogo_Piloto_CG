@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://cmojyhqbnsyk7"]
+[gd_scene load_steps=17 format=4 uid="uid://cmojyhqbnsyk7"]
 
 [ext_resource type="Texture2D" uid="uid://cac6instvo6w7" path="res://assets/sprites/Tileset/TileSet Pantheon King G.png" id="1_h5ou5"]
 [ext_resource type="PackedScene" uid="uid://cc7hvkm0b2siv" path="res://scenes/kill_zone.tscn" id="2_srcib"]
 [ext_resource type="PackedScene" uid="uid://gyvx3dg8fjc3" path="res://scenes/plataforma.tscn" id="3_gusol"]
 [ext_resource type="PackedScene" uid="uid://cdlfkdp5o6veg" path="res://scenes/item_habilitador.tscn" id="4_eta6l"]
+[ext_resource type="Texture2D" uid="uid://bcgcy821a81rm" path="res://assets/images/bg-grecia.png" id="5_galtu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hmdvc"]
 texture = ExtResource("1_h5ou5")
@@ -147,6 +148,8 @@ tile_set = SubResource("TileSet_p4i2r")
 
 [node name="OutOfBoundsKillZone" parent="." instance=ExtResource("2_srcib")]
 position = Vector2(0, 112)
+collision_layer = 8
+collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OutOfBoundsKillZone"]
 position = Vector2(1, 25)
@@ -174,3 +177,8 @@ autoplay = "Ladin"
 position = Vector2(651, -509)
 max_X = 800.0
 min_X = -830.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1, -369)
+texture = ExtResource("5_galtu")

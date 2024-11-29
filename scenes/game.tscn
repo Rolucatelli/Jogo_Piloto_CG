@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://tklpsg1rynxl"]
+[gd_scene load_steps=5 format=3 uid="uid://tklpsg1rynxl"]
 
-[ext_resource type="Script" path="res://scripts/arena.gd" id="1_ode12"]
 [ext_resource type="PackedScene" uid="uid://cmojyhqbnsyk7" path="res://scenes/greek.tscn" id="2_bo4x3"]
 [ext_resource type="PackedScene" uid="uid://cuejyrxey55tr" path="res://scenes/thanatos.tscn" id="3_tph0l"]
 [ext_resource type="AudioStream" uid="uid://busnmg71qjw2b" path="res://assets/music/Infraction-Adrenaline-Rush-pr.mp3" id="4_1d0yg"]
@@ -9,7 +8,6 @@
 [node name="Game" type="Node2D"]
 
 [node name="Arena" type="Node" parent="."]
-script = ExtResource("1_ode12")
 
 [node name="Grassfield" parent="Arena" instance=ExtResource("2_bo4x3")]
 

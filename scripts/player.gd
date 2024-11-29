@@ -80,12 +80,17 @@ var doubleJump := true
 @onready var special := "special1" if (jogador == 1) else "special2"
 @onready var interact := "interact1" if (jogador == 1) else "interact2"
 
+@onready var weapon_dismiss: Timer = $CopyAndPaste/WeaponDismiss
+@onready var respawn_timer: Timer = $CopyAndPaste/RespawnTimer
 
+func _ready() -> void:
+	set_collision_layer_value(5, jogador == 1)
+	set_collision_layer_value(6, jogador == 2)
+	hit_area.set_collision_mask_value(5, jogador == 2)
+	hit_area.set_collision_mask_value(6, jogador == 1)
 
 func _physics_process(delta: float) -> void:
 	
-	set_collision_layer_value(5, jogador == 1)
-	set_collision_layer_value(6, jogador == 2)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -102,11 +107,13 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 			doubleJump = true
 	
-	if Input.is_action_just_pressed(down) and is_on_floor():
-		pass
+	if dano >= 100 and arma and hitCombo == 2:
+		die()
+	if dano >= 120:
+		die()
 	
-	#if Input.is_action_just_pressed(interact):
-		#arma = true
+	if arma and weapon_dismiss.is_stopped():
+		weapon_dismiss.start()
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -116,13 +123,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	if dano != 0:
-		print(dano)
 	
 	move_and_slide()
-	animation()
+	if respawn_timer.is_stopped():
+		animation()
 	
-	animation_player.is_playing()
 
 
 var lastDirection := 0.01
@@ -391,3 +396,23 @@ func animation():
 			#hitCombo += 1
 			#nextHit = true
 			#
+
+
+func _on_weapon_dismiss_timeout() -> void:
+	arma = false
+
+func die():
+	vida -= 1
+	dano = 0
+	visible = false
+	respawn_timer.start()
+
+
+func _on_respawn_timer_timeout() -> void:
+	visible = true
+	position.x = -150
+	position.y = -200
+
+
+func _on_hit_area_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
