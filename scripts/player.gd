@@ -2,8 +2,9 @@ class_name Player
 
 extends CharacterBody2D
 
-const SPEED = 230.0
-const JUMP_VELOCITY = -275.0
+const MAX_SPEED = 230.0
+const MIN_SPEED = 140.0
+const JUMP_VELOCITY = -315.0
 enum Jogador {JOGADOR1 = 1, JOGADOR2 = 2}
 
 @export_category("Player Values")
@@ -71,6 +72,7 @@ enum Jogador {JOGADOR1 = 1, JOGADOR2 = 2}
 
 var lastDano := dano
 var doubleJump := true
+var speed := MIN_SPEED
 
 @onready var jump := "jump1" if (jogador == 1) else "jump2"
 @onready var left := "left1" if (jogador == 1) else "left2"
@@ -109,24 +111,30 @@ func _physics_process(delta: float) -> void:
 	
 	if dano >= 100 and arma and hitCombo == 2:
 		die()
-	if dano >= 120:
-		die()
 	
 	if arma and weapon_dismiss.is_stopped():
 		weapon_dismiss.start()
+	
+	if lastDano != dano:
+		speed = 30.0
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis(left, right)
 	if direction:
-		velocity.x = direction * SPEED
+		speed *= 1.02
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = 0
+		speed = MIN_SPEED
 	
-	
+	speed = clampf(speed, 30.0, MAX_SPEED)
 	move_and_slide()
 	if respawn_timer.is_stopped():
 		animation()
+	lastDano = dano
+	
+	
 	
 
 

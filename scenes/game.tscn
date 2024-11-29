@@ -1,15 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://tklpsg1rynxl"]
+[gd_scene load_steps=10 format=3 uid="uid://tklpsg1rynxl"]
 
+[ext_resource type="Script" path="res://scripts/arena.gd" id="1_ode12"]
 [ext_resource type="PackedScene" uid="uid://cmojyhqbnsyk7" path="res://scenes/greek.tscn" id="2_bo4x3"]
+[ext_resource type="PackedScene" uid="uid://djuamtw2tt7lx" path="res://scenes/egypt.tscn" id="2_vapxy"]
 [ext_resource type="PackedScene" uid="uid://cuejyrxey55tr" path="res://scenes/thanatos.tscn" id="3_tph0l"]
 [ext_resource type="AudioStream" uid="uid://busnmg71qjw2b" path="res://assets/music/Infraction-Adrenaline-Rush-pr.mp3" id="4_1d0yg"]
-[ext_resource type="PackedScene" uid="uid://btw3shdlp0idq" path="res://scenes/boneco_de_treino.tscn" id="5_4iq64"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="5_k0dpi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jumwy"]
+font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_4skje"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_lakiw"]
+font_size = 151
 
 [node name="Game" type="Node2D"]
 
-[node name="Arena" type="Node" parent="."]
+[node name="Arena" type="Node2D" parent="."]
+script = ExtResource("1_ode12")
 
-[node name="Grassfield" parent="Arena" instance=ExtResource("2_bo4x3")]
+[node name="Greek" parent="Arena" instance=ExtResource("2_bo4x3")]
+visible = false
+
+[node name="Egypt" parent="Arena" instance=ExtResource("2_vapxy")]
+visible = false
 
 [node name="Player1" parent="Arena" instance=ExtResource("3_tph0l")]
 position = Vector2(-154, -198)
@@ -28,11 +44,88 @@ rotation = 0.0523599
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="BonecoDeTreino" parent="." instance=ExtResource("5_4iq64")]
-position = Vector2(-781, -193)
-scale = Vector2(1.75, 1.75)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_1d0yg")
 volume_db = -31.2
 autoplay = true
+
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_k0dpi")
+
+[node name="LabelP2" type="Label" parent="Ui"]
+layout_mode = 0
+offset_left = 655.0
+offset_top = -877.0
+offset_right = 906.0
+offset_bottom = -800.0
+text = "Player 2"
+label_settings = SubResource("LabelSettings_jumwy")
+
+[node name="P2Vida" type="Label" parent="Ui/LabelP2"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 85.0
+offset_right = 248.0
+offset_bottom = 135.0
+text = "Vidas: 3"
+label_settings = SubResource("LabelSettings_4skje")
+
+[node name="P2Dano" type="Label" parent="Ui/LabelP2"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 134.0
+offset_right = 248.0
+offset_bottom = 184.0
+text = "Dano: 0"
+label_settings = SubResource("LabelSettings_4skje")
+
+[node name="LabelP1" type="Label" parent="Ui"]
+layout_mode = 0
+offset_left = -874.0
+offset_top = -875.0
+offset_right = -623.0
+offset_bottom = -798.0
+text = "Player 1"
+label_settings = SubResource("LabelSettings_jumwy")
+
+[node name="P1Vida" type="Label" parent="Ui/LabelP1"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 85.0
+offset_right = 176.0
+offset_bottom = 135.0
+text = "Vidas: 3"
+label_settings = SubResource("LabelSettings_4skje")
+
+[node name="P1Dano" type="Label" parent="Ui/LabelP1"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 134.0
+offset_right = 176.0
+offset_bottom = 184.0
+text = "Dano: 0"
+label_settings = SubResource("LabelSettings_4skje")
+
+[node name="VictoryLabel" type="Label" parent="Ui"]
+visible = false
+layout_mode = 0
+offset_left = -507.0
+offset_top = -803.0
+offset_right = 509.0
+offset_bottom = -590.0
+text = "Player   Wins!"
+label_settings = SubResource("LabelSettings_lakiw")
+
+[node name="Button" type="Button" parent="Ui/VictoryLabel"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 242.0
+offset_right = 625.0
+offset_bottom = 318.0
+text = "Main Menu"
+
+[connection signal="pressed" from="Ui/VictoryLabel/Button" to="Ui" method="_on_button_pressed"]
